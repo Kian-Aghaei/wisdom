@@ -4,7 +4,7 @@ class HeaderSearch extends React.Component {
     render() {
         return (
             <div>
-                <a className="header_search-trigger" href="#0"></a>
+                <a className="header__search-trigger" href="#0"></a>
             </div>
         );
     }

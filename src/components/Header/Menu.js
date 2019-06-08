@@ -1,6 +1,6 @@
 import React from 'react';
 
-class HeaderMenu extends React.Component {
+class Menu extends React.Component {
     render() {
         return (
             <nav className="header__nav-wrap">
@@ -41,4 +41,4 @@ class HeaderMenu extends React.Component {
     }
 }
 
-export default HeaderMenu
+export default Menu

@@ -1,9 +1,9 @@
 import React from 'react';
 
-class HeaderSocial extends React.Component {
+class Social extends React.Component {
     render() {
         return (
-                <ul className="header_social">
+                <ul className="header__social">
                     <li>
                         <a href="#0"><i className="fa fa-facebook" aria-hidden="true"></i></a>
                     </li>
@@ -21,4 +21,4 @@ class HeaderSocial extends React.Component {
     }
 }
 
-export default HeaderSocial;
+export default Social;

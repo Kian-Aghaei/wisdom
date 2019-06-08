@@ -1,25 +1,25 @@
 import React from 'react';
-import './css/main.css';
-import './css/base.css';
-import './css/fonts.css';
-import './css/vendor.css';
+import '../../css/main.css';
+import '../../css/base.css';
+import '../../css/fonts.css';
+import '../../css/vendor.css';
 // import './css/font-awesome/css/font-awesome.css'
 import HeaderLogo from './HeaderLogo'
-import HeaderSocial from './HeaderSocial'
-import HeaderMenu from './HeaderMenu'
-import HeaderSearch from './HeaderSearch'
+import Social from './Social'
+import Menu from './Menu'
+import Search from './Search'
 
 
-class HeaderComp extends React.Component {
+class Header extends React.Component {
     render() {
         return (
-            <section className="sec-pageheader sec-pageheader-home">
+            <section className="s-pageheader s-pageheader--home">
                 <header className="header">
-                    <div className="header_content row">
+                    <div className="header__content row">
 
                         <HeaderLogo/>
-                        <HeaderSocial/>
-                        <HeaderSearch/>
+                        <Social/>
+                        <Search/>
 
                         {/*<div className="header__search">*/}
 
@@ -36,9 +36,9 @@ class HeaderComp extends React.Component {
                         {/*</div>*/}
 
 
-                        {/*<a className="header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>*/}
+                        <a className="header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>
 
-                        <HeaderMenu/>
+                        <Menu/>
                     </div>
                 </header>
             </section>
@@ -46,4 +46,4 @@ class HeaderComp extends React.Component {
     }
 }
 
-export default HeaderComp
+export default Header;

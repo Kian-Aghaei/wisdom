@@ -2000,7 +2000,7 @@ body.search-is-visible {
    animation-iteration-count: 1;
 }
 
-input {
+.input {
    position: absolute;
    box-sizing: border-box;
    width: 20px;
@@ -2140,6 +2140,67 @@ input {
 }
 
 .searchVisible {
+   visibility: visible;
+   opacity: 1;
+   transition: opacity 0.5s linear;
+}
+
+/* -------------------------------------------------------------------
+ * responsive:
+ * search field - less than 800px
+ * ------------------------------------------------------------------- */
+
+.form-mobile {
+   width: 80%;
+   border-radius: 10px;
+   display: block;
+   height: 50px;
+   background-color: #FFFFFF;
+   top: -45px;
+   position: relative;
+   padding: 0 20px;
+   margin: 0 auto;
+   box-shadow: 2px 2px 2px 1px #999999;
+}
+
+@media only screen and (max-width:600px) {
+   .form-mobile {
+      width: 60%;
+      height: 30px;
+   }
+}
+
+@media only screen and (max-width:400px) {
+   .form-mobile {
+      height: 25px;
+      top: -30px;
+      position: relative;
+   }
+   .mobile-search-input {
+      font-weight: normal !important;
+      font-size: 0.8em !important;
+      margin-bottom: 3px !important;
+      margin-top: 2px !important;
+   }
+}
+
+.mobile-search-input {
+   width: 100%;
+   height: 80%;
+   border: none;
+   outline: none;
+   margin-top: 5px;
+   font-size: 1.1em;
+   font-weight: bold;
+}
+
+.mobileSearchHidden {
+   visibility: hidden ;
+   opacity: 0;
+   transition: visibility 0s 0.5s, opacity 0.5s linear;
+}
+
+.mobileSearchVisible {
    visibility: visible;
    opacity: 1;
    transition: opacity 0.5s linear;

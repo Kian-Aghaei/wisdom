@@ -3,14 +3,47 @@ import '../../css/main.css';
 import '../../css/base.css';
 import '../../css/fonts.css';
 import '../../css/vendor.css';
-// import './css/font-awesome/css/font-awesome.css'
 import HeaderLogo from './HeaderLogo'
 import Social from './Social'
 import Menu from './Menu'
 import Search from './Search'
+import MobileSearchBox from './MobileSearchBox'
 
 
 class Header extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            width: 801,
+            height: 0,
+            mobileSearchBoxDisplay: 'mobileSearchHidden',
+        };
+        this.updateScreenWidthState = this.updateScreenWidthState.bind(this);
+        this.listenForCloseButton = this.listenForCloseButton.bind(this);
+    }
+
+    updateScreenWidthState() {
+        this.setState({
+            width: window.innerWidth,
+            height: window.innerHeight,
+        })
+    }
+
+    componentDidMount() {
+        this.updateScreenWidthState();
+        window.addEventListener('resize', this.updateScreenWidthState);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.updateScreenWidthState);
+    }
+
+    listenForCloseButton(requiredClass) {
+        this.setState ({
+            mobileSearchBoxDisplay: requiredClass,
+        });
+    }
+
     render() {
         return (
             <section className="s-pageheader s-pageheader--home">
@@ -19,28 +52,20 @@ class Header extends React.Component {
 
                         <HeaderLogo/>
                         <Social/>
-                        <Search/>
-
-                        {/*<div className="header__search">*/}
-
-                            {/*<form role="search" method="get" className="header__search-form" action="#">*/}
-                                {/*<label>*/}
-                                    {/*<span className="hide-content">Search for:</span>*/}
-                                    {/*<input type="search" className="search-field" placeholder="Type Keywords" value="" name="s" title="Search for:" autocomplete="off"></input>*/}
-                                {/*</label>*/}
-                                {/*<input type="submit" className="search-submit" value="Search"></input>*/}
-                            {/*</form>*/}
-
-                            {/*<a href="#0" title="Close Search" className="header__overlay-close">Close</a>*/}
-
-                        {/*</div>*/}
-
-
+                        <Search
+                            screenWidth={this.state.width}
+                            listenForCloseButton={this.listenForCloseButton}
+                            displayState={this.state.mobileSearchBoxDisplay}
+                        />
                         <a className="header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>
-
                         <Menu/>
+
                     </div>
                 </header>
+                <MobileSearchBox
+                    screenWidth={this.state.width}
+                    displayState={this.state.mobileSearchBoxDisplay}
+                />
             </section>
         )
     }

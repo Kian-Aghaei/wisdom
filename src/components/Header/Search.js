@@ -59,20 +59,29 @@ class HeaderSearch extends React.Component {
     };
 
     toggleSearch = () => {
-        if (this.state.square === '') {
-            this.setState({
-                square: 'square',
-                close: 'close',
-                visibility: 'searchHidden',
-            });
-            this.focus();
+        const screenWidth = this.props.screenWidth;
+        if (screenWidth > 800 ) {
+            if (this.state.square === '') {
+                this.setState({
+                    square: 'square',
+                    close: 'close',
+                    visibility: 'searchHidden',
+                });
+                this.focus();
+            } else {
+                this.setState({
+                    square: '',
+                    close: '',
+                    visibility: 'searchVisible',
+                    inputValue: '',
+                });
+            }
         } else {
-            this.setState({
-                square: '',
-                close: '',
-                visibility: 'searchVisible',
-                inputValue: '',
-            });
+            if (this.props.displayState === 'mobileSearchHidden') {
+                this.props.listenForCloseButton('mobileSearchVisible');
+            } else {
+                this.props.listenForCloseButton('mobileSearchHidden');
+            }
         }
     };
 
@@ -81,6 +90,9 @@ class HeaderSearch extends React.Component {
             <form className="" id="searchForm">
                 <p className={`searchIndex ${this.state.visibility}`}>SEARCH</p>
                 <input
+                    role="search"
+                    method="get"
+                    action="#"
                     value={this.state.inputValue}
                     onChange={this.changeValueOfInput}
                     // onBlur={this.shrinkWhenClickedAnywhere}

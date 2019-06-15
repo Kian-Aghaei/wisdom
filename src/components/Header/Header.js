@@ -3,30 +3,39 @@ import '../../css/main.css';
 import '../../css/base.css';
 import '../../css/fonts.css';
 import '../../css/vendor.css';
-import HeaderLogo from './HeaderLogo'
-import Social from './Social'
-import Menu from './Menu'
-import Search from './Search'
-import MobileSearchBox from './MobileSearchBox'
+import HeaderLogo from './HeaderLogo';
+import Social from './Social';
+import Menu from './Menu';
+import Search from './Search';
+import MobileSearchBox from './MobileSearchBox';
+import { desktopScreenSizeLimit } from '../config';
 
 
 class Header extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            width: 801,
+            width: desktopScreenSizeLimit + 1,
             height: 0,
             mobileSearchBoxDisplay: 'mobileSearchHidden',
         };
         this.updateScreenWidthState = this.updateScreenWidthState.bind(this);
-        this.listenForCloseButton = this.listenForCloseButton.bind(this);
+        this.listenForCloseButtonAndEsc = this.listenForCloseButtonAndEsc.bind(this);
     }
 
     updateScreenWidthState() {
-        this.setState({
-            width: window.innerWidth,
-            height: window.innerHeight,
-        })
+        if ( this.state.width > desktopScreenSizeLimit) {
+            this.setState({
+                width: window.innerWidth,
+                height: window.innerHeight,
+            })
+        } else {
+            this.setState({
+                width: window.innerWidth,
+                height: window.innerHeight,
+                mobileSearchBoxDisplay: 'mobileSearchHidden',
+            })
+        }
     }
 
     componentDidMount() {
@@ -38,7 +47,7 @@ class Header extends React.Component {
         window.removeEventListener('resize', this.updateScreenWidthState);
     }
 
-    listenForCloseButton(requiredClass) {
+    listenForCloseButtonAndEsc(requiredClass) {
         this.setState ({
             mobileSearchBoxDisplay: requiredClass,
         });
@@ -54,7 +63,7 @@ class Header extends React.Component {
                         <Social/>
                         <Search
                             screenWidth={this.state.width}
-                            listenForCloseButton={this.listenForCloseButton}
+                            listenForCloseButtonAndEsc={this.listenForCloseButtonAndEsc}
                             displayState={this.state.mobileSearchBoxDisplay}
                         />
                         <a className="header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>

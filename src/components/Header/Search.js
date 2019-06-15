@@ -1,4 +1,6 @@
 import React from 'react';
+import { desktopScreenSizeLimit } from '../config';
+import { escKeyCode } from '../config';
 
 class HeaderSearch extends React.Component {
     constructor(props) {
@@ -28,7 +30,8 @@ class HeaderSearch extends React.Component {
     }
 
     escFunction (event) {
-        if (event.keyCode === 27) {
+        if (event.keyCode === escKeyCode) {
+           this.props.listenForCloseButtonAndEsc('mobileSearchHidden');
            if (this.state.square === 'square') {
                this.setState({
                    square: '',
@@ -39,10 +42,11 @@ class HeaderSearch extends React.Component {
                event.target.blur();
            }
         }
+        else return null;
     }
 
     checkTheExpandedSearchBox() {
-        if (this.props.screenWidth < 800 && this.state.square === 'square' ) {
+        if (this.props.screenWidth < desktopScreenSizeLimit && this.state.square === 'square' ) {
             this.setState({
                 square: '',
                 close: '',
@@ -66,7 +70,7 @@ class HeaderSearch extends React.Component {
     }
 
     changeValueOfInput (event) {
-        const value = event.target.value;
+        const { value } = event.target;
         this.setState ({
             inputValue: value,
         })
@@ -74,7 +78,7 @@ class HeaderSearch extends React.Component {
 
     toggleSearch = () => {
         const screenWidth = this.props.screenWidth;
-        if (screenWidth > 800 ) {
+        if (screenWidth > desktopScreenSizeLimit ) {
             if (this.state.square === '') {
                 this.setState({
                     square: 'square',
@@ -92,9 +96,9 @@ class HeaderSearch extends React.Component {
             }
         } else {
             if (this.props.displayState === 'mobileSearchHidden') {
-                this.props.listenForCloseButton('mobileSearchVisible');
+                this.props.listenForCloseButtonAndEsc('mobileSearchVisible');
             } else {
-                this.props.listenForCloseButton('mobileSearchHidden');
+                this.props.listenForCloseButtonAndEsc('mobileSearchHidden');
             }
         }
     };

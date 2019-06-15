@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
+import { desktopScreenSizeLimit } from '../config';
 
-function MobileSearchBox(props) {
-    const screenWidth = props.screenWidth;
-    if (screenWidth <= 800) {
+const MobileSearchBox = props => {
+    if (props.screenWidth <= desktopScreenSizeLimit) {
         return (
             <form
                 method="get"
@@ -18,6 +18,6 @@ function MobileSearchBox(props) {
             </form>
         )
     } else return (null);
-}
+};
 
 export default MobileSearchBox;

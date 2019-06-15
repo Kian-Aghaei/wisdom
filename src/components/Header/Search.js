@@ -5,11 +5,14 @@ import { escKeyCode } from '../config';
 class HeaderSearch extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
+        const defaultStateForClosedSearchBox = {
             square: '',
             close: '',
             visibility: 'searchVisible',
             inputValue: '',
+        };
+        this.state = {
+            ...defaultStateForClosedSearchBox
         };
         this.textInput = React.createRef();
         this.focus = this.focus.bind(this);
@@ -34,10 +37,7 @@ class HeaderSearch extends React.Component {
            this.props.listenForCloseButtonAndEsc('mobileSearchHidden');
            if (this.state.square === 'square') {
                this.setState({
-                   square: '',
-                   close: '',
-                   visibility: 'searchVisible',
-                   inputValue: '',
+                   ...this.defaultStateForClosedSearchBox,
                });
                event.target.blur();
            }
@@ -48,10 +48,7 @@ class HeaderSearch extends React.Component {
     checkTheExpandedSearchBox() {
         if (this.props.screenWidth < desktopScreenSizeLimit && this.state.square === 'square' ) {
             this.setState({
-                square: '',
-                close: '',
-                visibility: 'searchVisible',
-                inputValue: '',
+                ...this.defaultStateForClosedSearchBox,
             });
         }
     }
@@ -88,10 +85,7 @@ class HeaderSearch extends React.Component {
                 this.focus();
             } else {
                 this.setState({
-                    square: '',
-                    close: '',
-                    visibility: 'searchVisible',
-                    inputValue: '',
+                    ...this.defaultStateForClosedSearchBox,
                 });
             }
         } else {

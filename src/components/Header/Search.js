@@ -14,6 +14,7 @@ class HeaderSearch extends React.Component {
         this.escFunction = this.escFunction.bind(this);
         this.changeValueOfInput = this.changeValueOfInput.bind(this);
         this.shrinkWhenClickedAnywhere = this.shrinkWhenClickedAnywhere.bind(this);
+        this.checkTheExpandedSearchBox = this.checkTheExpandedSearchBox.bind(this);
     }
 
     shrinkWhenClickedAnywhere() {
@@ -40,11 +41,24 @@ class HeaderSearch extends React.Component {
         }
     }
 
+    checkTheExpandedSearchBox() {
+        if (this.props.screenWidth < 800 && this.state.square === 'square' ) {
+            this.setState({
+                square: '',
+                close: '',
+                visibility: 'searchVisible',
+                inputValue: '',
+            });
+        }
+    }
+
     componentDidMount(){
         document.addEventListener("keydown", this.escFunction, false);
+        window.addEventListener('resize', this.checkTheExpandedSearchBox, false);
     }
     componentWillUnmount(){
         document.removeEventListener("keydown", this.escFunction, false);
+        window.removeEventListener('resize', this.checkTheExpandedSearchBox, false);
     }
 
     focus() {

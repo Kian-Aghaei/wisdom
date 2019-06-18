@@ -12,7 +12,7 @@ class HeaderSearch extends React.Component {
             inputValue: '',
         };
         this.state = {
-            ...defaultStateForClosedSearchBox
+            ...defaultStateForClosedSearchBox,
         };
         this.textInput = React.createRef();
         this.focus = this.focus.bind(this);
@@ -25,9 +25,7 @@ class HeaderSearch extends React.Component {
     shrinkWhenClickedAnywhere() {
         if (this.state.inputValue === '') {
             this.setState({
-                square: '',
-                close: '',
-                visibility: 'searchVisible',
+                ...this.defaultStateForClosedSearchBox,
             });
         }
     }

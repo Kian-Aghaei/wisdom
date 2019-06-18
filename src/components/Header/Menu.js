@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Menu = props => (
+const Menu = () => (
   <nav className="header__nav-wrap">
 
     <h2 className="header__nav-heading h6">Site Navigation</h2>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Social = props => (
+const Social = () => (
   <ul className="header__social">
     <li>
       <a href="#0"><i className="fa fa-facebook" aria-hidden="true" /></a>

@@ -3,13 +3,13 @@ import '../../css/main.css';
 import '../../css/base.css';
 import '../../css/fonts.css';
 import '../../css/vendor.css';
+// eslint-disable-next-line import/no-named-as-default,import/no-named-as-default-member
+import Search from './Search';
 import HeaderLogo from './HeaderLogo';
 import Social from './Social';
 import Menu from './Menu';
-import Search from './Search';
 import MobileSearchBox from './MobileSearchBox';
-import { desktopScreenSizeLimit } from '../config';
-import { mobileSearchBoxVisibility } from '../config';
+import { desktopScreenSizeLimit, mobileSearchBoxVisibility } from '../config';
 
 
 class Header extends React.Component {
@@ -17,26 +17,10 @@ class Header extends React.Component {
     super(props);
     this.state = {
       width: desktopScreenSizeLimit + 1,
-      height: 0,
       mobileSearchBoxDisplay: mobileSearchBoxVisibility[0],
     };
     this.updateScreenWidthState = this.updateScreenWidthState.bind(this);
     this.listenForCloseButtonAndEsc = this.listenForCloseButtonAndEsc.bind(this);
-  }
-
-  updateScreenWidthState() {
-    if (this.state.width > desktopScreenSizeLimit) {
-      this.setState({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    } else {
-      this.setState({
-        width: window.innerWidth,
-        height: window.innerHeight,
-        mobileSearchBoxDisplay: mobileSearchBoxVisibility[0],
-      });
-    }
   }
 
   componentDidMount() {
@@ -48,6 +32,21 @@ class Header extends React.Component {
     window.removeEventListener('resize', this.updateScreenWidthState);
   }
 
+  updateScreenWidthState() {
+    const { width } = this.state;
+
+    if (width > desktopScreenSizeLimit) {
+      this.setState({
+        width: window.innerWidth,
+      });
+    } else {
+      this.setState({
+        width: window.innerWidth,
+        mobileSearchBoxDisplay: mobileSearchBoxVisibility[0],
+      });
+    }
+  }
+
   listenForCloseButtonAndEsc(requiredClass) {
     this.setState({
       mobileSearchBoxDisplay: requiredClass,
@@ -55,6 +54,8 @@ class Header extends React.Component {
   }
 
   render() {
+    const { width, mobileSearchBoxDisplay } = this.state;
+
     return (
       <section className="s-pageheader s-pageheader--home">
         <header className="header">
@@ -63,20 +64,22 @@ class Header extends React.Component {
             <HeaderLogo />
             <Social />
             <Search
-              screenWidth={this.state.width}
+              screenWidth={width}
               listenForCloseButtonAndEsc={this.listenForCloseButtonAndEsc}
-              displayState={this.state.mobileSearchBoxDisplay}
+              displayState={mobileSearchBoxDisplay}
             />
             <a className="header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>
             <Menu />
 
-            </div>
+          </div>
         </header>
-        {this.state.width <= desktopScreenSizeLimit &&
-          <MobileSearchBox
-          screenWidth={this.state.width}
-          displayState={this.state.mobileSearchBoxDisplay}
-          />
+        {width <= desktopScreenSizeLimit
+          && (
+            <MobileSearchBox
+              screenWidth={width}
+              displayState={mobileSearchBoxDisplay}
+            />
+          )
         }
       </section>
     );

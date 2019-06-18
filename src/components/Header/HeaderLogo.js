@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from '../../images/logo.svg';
 
-const HeaderLogo = props => (
+const HeaderLogo = () => (
   <div className="header__logo">
     <a className="logo" href="index.html">
       <img

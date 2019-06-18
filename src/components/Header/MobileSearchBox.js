@@ -1,22 +1,20 @@
 import React from 'react';
-import { desktopScreenSizeLimit } from '../config';
 
-const MobileSearchBox = (props) => {
-  if (props.screenWidth <= desktopScreenSizeLimit) {
-    return (
-      <form
-        method="get"
-        action="#"
-        id="search-form-mobile"
-        className={`form-mobile ${props.displayState}`}
+const MobileSearchBox = props => {
+  return (
+    <form
+      method="get"
+      action="#"
+      id="search-form-mobile"
+      className={`form-mobile ${props.displayState}`}
+    >
+      <input
+        className="mobile-search-input"
+        placeholder="Search ..."
       >
-        <input
-          className="mobile-search-input"
-          placeholder="Search ..."
-        />
-      </form>
-    );
-  } return (null);
+      </input>
+    </form>
+  );
 };
 
 export default MobileSearchBox;

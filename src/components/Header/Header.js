@@ -70,12 +70,14 @@ class Header extends React.Component {
             <a className="header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>
             <Menu />
 
-          </div>
+            </div>
         </header>
-        <MobileSearchBox
+        {this.state.width <= desktopScreenSizeLimit &&
+          <MobileSearchBox
           screenWidth={this.state.width}
           displayState={this.state.mobileSearchBoxDisplay}
-        />
+          />
+        }
       </section>
     );
   }

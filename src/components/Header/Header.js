@@ -72,10 +72,12 @@ class Header extends React.Component {
 
                     </div>
                 </header>
-                <MobileSearchBox
-                    screenWidth={this.state.width}
-                    displayState={this.state.mobileSearchBoxDisplay}
-                />
+                {this.state.width <= desktopScreenSizeLimit &&
+                    <MobileSearchBox
+                        screenWidth={this.state.width}
+                        displayState={this.state.mobileSearchBoxDisplay}
+                    />
+                }
             </section>
         )
     }

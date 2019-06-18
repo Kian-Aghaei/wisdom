@@ -9,6 +9,7 @@ import Menu from './Menu';
 import Search from './Search';
 import MobileSearchBox from './MobileSearchBox';
 import { desktopScreenSizeLimit } from '../config';
+import { mobileSearchBoxVisibility } from '../config';
 
 
 class Header extends React.Component {
@@ -17,7 +18,7 @@ class Header extends React.Component {
         this.state = {
             width: desktopScreenSizeLimit + 1,
             height: 0,
-            mobileSearchBoxDisplay: 'mobileSearchHidden',
+            mobileSearchBoxDisplay: mobileSearchBoxVisibility[0],
         };
         this.updateScreenWidthState = this.updateScreenWidthState.bind(this);
         this.listenForCloseButtonAndEsc = this.listenForCloseButtonAndEsc.bind(this);
@@ -33,7 +34,7 @@ class Header extends React.Component {
             this.setState({
                 width: window.innerWidth,
                 height: window.innerHeight,
-                mobileSearchBoxDisplay: 'mobileSearchHidden',
+                mobileSearchBoxDisplay: mobileSearchBoxVisibility[0]
             })
         }
     }

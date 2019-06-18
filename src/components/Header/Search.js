@@ -1,18 +1,19 @@
 import React from 'react';
 import { desktopScreenSizeLimit } from '../config';
 import { escKeyCode } from '../config';
+import { mobileSearchBoxVisibility } from '../config';
 
 class HeaderSearch extends React.Component {
     constructor(props) {
         super(props);
-        const defaultStateForClosedSearchBox = {
-            square: '',
-            close: '',
+        this.defaultState = {
+            openSearchBox: '',
+            closedSearchBox: '',
             visibility: 'searchVisible',
             inputValue: '',
         };
         this.state = {
-            ...defaultStateForClosedSearchBox,
+            ...this.defaultState,
         };
         this.textInput = React.createRef();
         this.focus = this.focus.bind(this);
@@ -25,17 +26,17 @@ class HeaderSearch extends React.Component {
     shrinkWhenClickedAnywhere() {
         if (this.state.inputValue === '') {
             this.setState({
-                ...this.defaultStateForClosedSearchBox,
+                ...this.defaultState,
             });
         }
     }
 
     escFunction (event) {
         if (event.keyCode === escKeyCode) {
-           this.props.listenForCloseButtonAndEsc('mobileSearchHidden');
-           if (this.state.square === 'square') {
+           this.props.listenForCloseButtonAndEsc(mobileSearchBoxVisibility[0]);
+           if (this.state.openSearchBox === 'openSearchBox') {
                this.setState({
-                   ...this.defaultStateForClosedSearchBox,
+                   ...this.defaultState,
                });
                event.target.blur();
            }
@@ -44,9 +45,9 @@ class HeaderSearch extends React.Component {
     }
 
     checkTheExpandedSearchBox() {
-        if (this.props.screenWidth < desktopScreenSizeLimit && this.state.square === 'square' ) {
+        if (this.props.screenWidth < desktopScreenSizeLimit && this.state.openSearchBox === 'openSearchBox' ) {
             this.setState({
-                ...this.defaultStateForClosedSearchBox,
+                ...this.defaultState,
             });
         }
     }
@@ -74,23 +75,23 @@ class HeaderSearch extends React.Component {
     toggleSearch = () => {
         const screenWidth = this.props.screenWidth;
         if (screenWidth > desktopScreenSizeLimit ) {
-            if (this.state.square === '') {
+            if (this.state.openSearchBox === '') {
                 this.setState({
-                    square: 'square',
-                    close: 'close',
+                    openSearchBox: 'openSearchBox',
+                    closedSearchBox: 'closedSearchBox',
                     visibility: 'searchHidden',
                 });
                 this.focus();
             } else {
                 this.setState({
-                    ...this.defaultStateForClosedSearchBox,
+                    ...this.defaultState,
                 });
             }
         } else {
-            if (this.props.displayState === 'mobileSearchHidden') {
-                this.props.listenForCloseButtonAndEsc('mobileSearchVisible');
+            if (this.props.displayState === mobileSearchBoxVisibility[0]) {
+                this.props.listenForCloseButtonAndEsc(mobileSearchBoxVisibility[1]);
             } else {
-                this.props.listenForCloseButtonAndEsc('mobileSearchHidden');
+                this.props.listenForCloseButtonAndEsc(mobileSearchBoxVisibility[0]);
             }
         }
     };
@@ -109,13 +110,13 @@ class HeaderSearch extends React.Component {
                     ref={this.textInput}
                     type="text"
                     name="input"
-                    className={`input ${this.state.square}`}
+                    className={`input ${this.state.openSearchBox}`}
                     id="search-input">
                 </input>
                 <button
                     onClick={() => {this.toggleSearch();}}
                     type="reset"
-                    className={`search ${this.state.close}`}
+                    className={`search ${this.state.closedSearchBox}`}
                     id="search-btn">
                 </button>
             </form>

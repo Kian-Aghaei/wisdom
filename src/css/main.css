@@ -2062,11 +2062,11 @@ body.search-is-visible {
    transition: 0.2s ease-in-out;
 }
 
-.close {
+.closedSearchBox {
    margin-left: 2px;
 }
 
-.close:before {
+.closedSearchBox:before {
    content: "";
    position: absolute;
    width: 16px;
@@ -2081,7 +2081,7 @@ body.search-is-visible {
    transition: 0.2s ease-in-out;
 }
 
-.close:after {
+.closedSearchBox:after {
    content: "";
    position: absolute;
    width: 16px;
@@ -2095,7 +2095,7 @@ body.search-is-visible {
    transform: rotate(-45deg);
 }
 
-.square {
+.openSearchBox {
    box-sizing: border-box;
    padding: 0 25px 0 5px;
    width: 200px;

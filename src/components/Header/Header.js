@@ -3,6 +3,8 @@ import '../../css/main.css';
 import '../../css/base.css';
 import '../../css/fonts.css';
 import '../../css/vendor.css';
+import Burger from '@animated-burgers/burger-squeeze';
+import '@animated-burgers/burger-squeeze/dist/styles.css';
 // eslint-disable-next-line import/no-named-as-default,import/no-named-as-default-member
 import Search from './Search';
 import HeaderLogo from './HeaderLogo';
@@ -16,11 +18,13 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      burgerCondition: false,
       width: desktopScreenSizeLimit + 1,
       mobileSearchBoxDisplay: mobileSearchBoxVisibility[0],
     };
     this.updateScreenWidthState = this.updateScreenWidthState.bind(this);
     this.listenForCloseButtonAndEsc = this.listenForCloseButtonAndEsc.bind(this);
+    this.handleClickOnBurger = this.handleClickOnBurger.bind(this);
   }
 
   componentDidMount() {
@@ -30,6 +34,13 @@ class Header extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateScreenWidthState);
+  }
+
+  handleClickOnBurger() {
+    const { burgerCondition } = this.state;
+    this.setState({
+      burgerCondition: !burgerCondition,
+    });
   }
 
   updateScreenWidthState() {
@@ -54,7 +65,7 @@ class Header extends React.Component {
   }
 
   render() {
-    const { width, mobileSearchBoxDisplay } = this.state;
+    const { width, mobileSearchBoxDisplay, burgerCondition } = this.state;
 
     return (
       <section className="s-pageheader s-pageheader--home">
@@ -68,7 +79,7 @@ class Header extends React.Component {
               listenForCloseButtonAndEsc={this.listenForCloseButtonAndEsc}
               displayState={mobileSearchBoxDisplay}
             />
-            <a className="header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>
+            <Burger onClick={this.handleClickOnBurger} isOpen={burgerCondition} className="burgerShow burgerHidden" />
             <Menu />
 
           </div>

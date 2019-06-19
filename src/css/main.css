@@ -2338,7 +2338,7 @@ body.search-is-visible {
    color: rgba(255, 255, 255, 0.6);
 }
 
-.header__nav-wrap .header__nav-heading {
+.header__nav-wrap {
    text-align: center;
    font-family: "metropolis-semibold", sans-serif;
    font-size: 1.4rem;
@@ -2348,7 +2348,7 @@ body.search-is-visible {
    margin-top: 6rem;
 }
 
-.header__nav-wrap .header__nav-heading,
+.header__nav-wrap ,
 .header__nav-wrap .close-mobile-menu {
    display: none;
 }
@@ -2470,6 +2470,30 @@ body.search-is-visible {
 }
 
 /* -------------------------------------------------------------------
+ * burger modification
+ * ------------------------------------------------------------------- */
+@media only screen and (max-width: 800px) {
+  .burgerShow {
+    top: -36px;
+  }
+  .burger {
+    font-size: 10px !important;
+  }
+}
+
+@media only screen and (min-width: 801px) {
+  .burgerHidden {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .burgerShow {
+    top: -30px;
+  }
+}
+
+/* -------------------------------------------------------------------
  * responsive:
  * main navigation
  * ------------------------------------------------------------------- */
@@ -2505,7 +2529,7 @@ body.search-is-visible {
       overflow-y: auto;
    }
 
-   .header__nav-wrap .header__nav-heading,
+   .header__nav-wrap ,
    .header__nav-wrap .close-mobile-menu {
       display: block;
    }

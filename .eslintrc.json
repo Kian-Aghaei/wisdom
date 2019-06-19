@@ -29,6 +29,7 @@
         ]
       }
     ],
-    "jsx-a11y/anchor-has-content": "off"
+    "jsx-a11y/anchor-has-content": "off",
+    "linebreak-style": "off"
   }
 }

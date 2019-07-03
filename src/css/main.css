@@ -2338,19 +2338,16 @@ body.search-is-visible {
    color: rgba(255, 255, 255, 0.6);
 }
 
-.header__nav-wrap .header__nav-heading {
+.header__nav-wrap {
    text-align: center;
-   font-family: "metropolis-semibold", sans-serif;
+   font-family: "metropolis-regular", sans-serif;
    font-size: 1.4rem;
    color: #FFFFFF;
-   text-transform: uppercase;
-   letter-spacing: .3rem;
-   margin-top: 6rem;
 }
 
-.header__nav-wrap .header__nav-heading,
+.header__nav-wrap ,
 .header__nav-wrap .close-mobile-menu {
-   display: none;
+   display: block;
 }
 
 .header__nav {
@@ -2470,6 +2467,30 @@ body.search-is-visible {
 }
 
 /* -------------------------------------------------------------------
+ * burger modification
+ * ------------------------------------------------------------------- */
+@media only screen and (max-width: 800px) {
+  .burgerShow {
+    top: -36px;
+  }
+  .burger {
+    font-size: 10px !important;
+  }
+}
+
+@media only screen and (min-width: 801px) {
+  .burgerHidden {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .burgerShow {
+    top: -30px;
+  }
+}
+
+/* -------------------------------------------------------------------
  * responsive:
  * main navigation
  * ------------------------------------------------------------------- */
@@ -2505,7 +2526,7 @@ body.search-is-visible {
       overflow-y: auto;
    }
 
-   .header__nav-wrap .header__nav-heading,
+   .header__nav-wrap ,
    .header__nav-wrap .close-mobile-menu {
       display: block;
    }
@@ -2576,7 +2597,103 @@ body.search-is-visible {
    }
 
 }
+/* -------------------------------------------------------------------
+ * react-burger-menu
+ * ------------------------------------------------------------------- */
+/* Personal CSS for Side Menu */
+.side-menu {
+  font-family: "metropolis-semibold", sans-serif;
+  font-size: 25px;
+  margin-bottom: 30px;
+  outline: none;
+}
 
+.side-menu a {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.side-menu a:hover {
+  color: #FFFFFF;
+}
+
+.current-item a {
+  color: #FFFFFF;
+}
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  visibility: hidden;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  height: 10% !important;
+  background: #FFFFFF;
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  background: #bdc3c7;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 5px;
+  width: 5px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #1d3357;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+@media only screen and (max-width: 800px) {
+  .bm-burger-button {
+    position: fixed;
+    width: 35px;
+    height: 25px;
+    left: 25px;
+    top: 30px;
+    visibility: visible;
+  }
+}
 
 /* -------------------------------------------------------------------
  * ## pageheader content

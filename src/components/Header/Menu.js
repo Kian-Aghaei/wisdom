@@ -2,9 +2,6 @@ import React from 'react';
 
 const Menu = () => (
   <nav className="header__nav-wrap">
-
-    <h2 className="header__nav-heading h6">Site Navigation</h2>
-
     <ul className="header__nav">
       <li className="current"><a href="index.html" title="">Home</a></li>
       <li className="has-children">
@@ -31,9 +28,6 @@ const Menu = () => (
       <li><a href="about.html" title="">About</a></li>
       <li><a href="contact.html" title="">Contact</a></li>
     </ul>
-
-    <a href="#0" title="Close Menu" className="header__overlay-close close-mobile-menu">Close</a>
-
   </nav>
 );
 

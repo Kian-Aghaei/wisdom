@@ -21,6 +21,7 @@ class Header extends React.Component {
     };
     this.updateScreenWidthState = this.updateScreenWidthState.bind(this);
     this.listenForCloseButtonAndEsc = this.listenForCloseButtonAndEsc.bind(this);
+    this.handleClickOnBurger = this.handleClickOnBurger.bind(this);
   }
 
   componentDidMount() {
@@ -30,6 +31,13 @@ class Header extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateScreenWidthState);
+  }
+
+  handleClickOnBurger() {
+    const { burgerCondition } = this.state;
+    this.setState({
+      burgerCondition: !burgerCondition,
+    });
   }
 
   updateScreenWidthState() {
@@ -68,7 +76,6 @@ class Header extends React.Component {
               listenForCloseButtonAndEsc={this.listenForCloseButtonAndEsc}
               displayState={mobileSearchBoxDisplay}
             />
-            <a className="header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>
             <Menu />
 
           </div>

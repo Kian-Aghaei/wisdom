@@ -1,0 +1,36 @@
+{
+  "postDetails" : {
+    "category" : [
+      "Story",
+      "News",
+      "Article"
+    ],
+    "href" : "#0",
+    "date" : "July 4, 2019",
+    "title" : [
+      "Beauty versus Evil",
+      "Meditating with Descartes",
+      "Seeing True Nature"
+    ],
+    "backImage" : [
+      "../../images/thumbs/featured/featured-leni.jpg",
+      "/static/media/featured-leni.606f0268.jpg",
+      "../../images/thumbs/featured/featured-japanese-bridge.jpg"
+    ]
+  },
+  "userDetails" : {
+    "name" : [
+      "Kian",
+      "Mary"
+    ],
+    "href" : "#0",
+    "icon" : [
+      "../../images/avatars/user-01.jpg",
+      "../../images/avatars/user-02.jpg",
+      "../../images/avatars/user-03.jpg",
+      "../../images/avatars/user-04.jpg",
+      "../../images/avatars/user-05.jpg",
+      "/static/media/user-06.e89391f8.jpg"
+    ]
+  }
+}

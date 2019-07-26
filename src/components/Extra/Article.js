@@ -4,7 +4,7 @@ import Image from '../../images/thumbs/small/wheel-150.jpg';
 const Article = () => (
   <article className="col-block popular__post">
     <a href="#0" className="popular__thumb">
-      <img src={ Image } alt="" />
+      <img src={Image} alt="" />
     </a>
     <h5><a href="#0">Visiting Theme Parks Improves Your Health.</a></h5>
     <section className="popular__meta">

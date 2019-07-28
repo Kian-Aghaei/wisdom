@@ -3,7 +3,6 @@ import '../../css/main.css';
 import '../../css/base.css';
 import '../../css/fonts.css';
 import '../../css/vendor.css';
-// eslint-disable-next-line import/no-named-as-default,import/no-named-as-default-member
 import Search from './Search';
 import HeaderContent from './HeaderContent';
 import HeaderLogo from './HeaderLogo';

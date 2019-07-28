@@ -2689,7 +2689,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
     position: fixed;
     width: 35px;
     height: 25px;
-    left: 25px;
+    left: 35px;
     top: 30px;
     visibility: visible;
   }

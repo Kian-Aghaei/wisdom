@@ -5,6 +5,7 @@ import '../../css/fonts.css';
 import '../../css/vendor.css';
 // eslint-disable-next-line import/no-named-as-default,import/no-named-as-default-member
 import Search from './Search';
+import HeaderContent from './HeaderContent';
 import HeaderLogo from './HeaderLogo';
 import Social from './Social';
 import Menu from './Menu';
@@ -83,11 +84,11 @@ class Header extends React.Component {
         {width <= desktopScreenSizeLimit
           && (
             <MobileSearchBox
-              screenWidth={width}
               displayState={mobileSearchBoxDisplay}
             />
           )
         }
+        <HeaderContent />
       </section>
     );
   }

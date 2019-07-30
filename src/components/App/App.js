@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../Header/Header';
 import SideMenu from './SideMenu';
+import Footer from '../Footer/Footer';
 import Extra from '../Extra/Extra';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <main id="page-wrap">
         <Header />
         <Extra />
+        <Footer />
       </main>
     </div>
   );

@@ -811,30 +811,30 @@ textarea:-webkit-autofill:focus, select:-webkit-autofill, select:-webkit-autofil
  * ------------------------------------------------------------------- */
 /*.btn,*/
 /*!*button,*!*/
-/*input[type="submit"],*/
+input[type="submit"]
 /*input[type="reset"],*/
 /*input[type="button"]*/
-/*{*/
-   /*display: inline-block;*/
-   /*font-family: "metropolis-bold", sans-serif;*/
-   /*font-size: 1.2rem;*/
-   /*text-transform: uppercase;*/
-   /*letter-spacing: .3rem;*/
-   /*height: 5.4rem;*/
-   /*line-height: 5rem;*/
-   /*padding: 0 3rem;*/
-   /*margin: 0 .3rem 1.2rem 0;*/
-   /*color: #000000;*/
-   /*text-decoration: none;*/
-   /*text-align: center;*/
-   /*white-space: nowrap;*/
-   /*border-radius: 3px;*/
-   /*cursor: pointer;*/
-   /*-webkit-transition: all 0.3s ease-in-out;*/
-   /*transition: all 0.3s ease-in-out;*/
-   /*background-color: #c5c5c5;*/
-   /*border: .2rem solid #c5c5c5;*/
-/*}*/
+{
+   display: inline-block;
+   font-family: "metropolis-bold", sans-serif;
+   font-size: 1.2rem;
+   text-transform: uppercase;
+   letter-spacing: .3rem;
+   height: 5.4rem;
+   line-height: 5rem;
+   padding: 0 3rem;
+   margin: 0 .3rem 1.2rem 0;
+   color: #000000;
+   text-decoration: none;
+   text-align: center;
+   white-space: nowrap;
+   border-radius: 3px;
+   cursor: pointer;
+   -webkit-transition: all 0.3s ease-in-out;
+   transition: all 0.3s ease-in-out;
+   background-color: #c5c5c5;
+   border: .2rem solid #c5c5c5;
+}
 
 /*.btn:hover,*/
 /*!*button:hover,*!*/
@@ -3606,6 +3606,7 @@ footer h4 {
    padding-bottom: 4.2rem;
    color: #FFFFFF;
    margin-top: 0;
+   margin-bottom: 1.8rem;
    position: relative;
 }
 
@@ -3624,6 +3625,9 @@ footer h4::after {
    margin-bottom: 3.6rem;
 }
 
+.col-five p {
+  margin-bottom: 3rem;
+}
 
 /* -------------------------------------------------------------------
  * ## footer link list
@@ -3708,7 +3712,6 @@ footer h4::after {
    color: #FFFFFF;
    font-family: "metropolis-regular", sans-serif, sans-serif;
    font-size: 1.3rem;
-   padding: 0 2rem;
 }
 
 .s-footer__subscribe #mc-form label i {

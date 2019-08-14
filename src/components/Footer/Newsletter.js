@@ -10,7 +10,7 @@ const Newsletter = () => (
     <div className="subscribe-form">
       <form id="mc-form" className="group">
         <label htmlFor="mc-email" className="subscribe-message">
-          <input type="email" value="" name="EMAIL" className="email" id="mc-email" placeholder="Email Address" required="" />
+          <input type="email" defaultValue name="EMAIL" className="email" id="mc-email" placeholder="Email Address" required="" />
         </label>
         <input type="submit" name="subscribe" value="Send" />
       </form>

@@ -1,8 +1,8 @@
 import React from 'react';
-import '../../css/main.css';
 import '../../css/base.css';
-import '../../css/fonts.css';
 import '../../css/vendor.css';
+import '../../css/main.css';
+import '../../css/fonts.css';
 import Search from './Search';
 import HeaderContent from './HeaderContent';
 import HeaderLogo from './HeaderLogo';

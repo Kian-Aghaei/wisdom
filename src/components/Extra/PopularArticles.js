@@ -16,7 +16,7 @@ const PopularArticles = () => (
           <span className="popular__author">
             <span>By</span>
             {' '}
-            <a href="#0"> John Doe</a>
+            <a href="#0"> John Doe </a>
           </span>
           <span className="popular__date">
             <span>on</span>
@@ -34,7 +34,7 @@ const PopularArticles = () => (
           <span className="popular__author">
             <span>By</span>
             {' '}
-            <a href="#0"> John Doe</a>
+            <a href="#0"> John Doe </a>
           </span>
           <span className="popular__date">
             <span>on</span>
@@ -52,7 +52,7 @@ const PopularArticles = () => (
           <span className="popular__author">
             <span>By</span>
             {' '}
-            <a href="#0"> John Doe</a>
+            <a href="#0"> John Doe </a>
           </span>
           <span className="popular__date">
             <span>on</span>
@@ -70,7 +70,7 @@ const PopularArticles = () => (
           <span className="popular__author">
             <span>By</span>
             {' '}
-            <a href="#0"> John Doe</a>
+            <a href="#0"> John Doe </a>
           </span>
           <span className="popular__date">
             <span>on</span>
@@ -88,7 +88,7 @@ const PopularArticles = () => (
           <span className="popular__author">
             <span>By</span>
             {' '}
-            <a href="#0"> John Doe</a>
+            <a href="#0"> John Doe </a>
           </span>
           <span className="popular__date">
             <span>on</span>

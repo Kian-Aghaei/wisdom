@@ -1441,26 +1441,26 @@ input[type="submit"]
 /* -------------------------------------------------------------------
  * ## masonry entries
  * ------------------------------------------------------------------- */
-.masonry .entry {
+.masonry-entry {
    margin-bottom: 40px;
 }
 
-.masonry .entry__thumb, .masonry .entry__text {
+.entry__thumb, .entry__text {
    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
 }
 
-.masonry .entry__thumb {
+.entry__thumb {
    position: relative;
    overflow: hidden;
 }
 
-.masonry .entry__thumb-link img {
+.entry__thumb-link img {
    vertical-align: bottom;
    -webkit-transition: all 0.3s ease-in-out;
    transition: all 0.3s ease-in-out;
 }
 
-.masonry .entry__thumb-link::before {
+.entry__thumb-link::before {
    content: "";
    display: block;
    background: rgba(0, 0, 0, 0.8);
@@ -1476,7 +1476,7 @@ input[type="submit"]
    z-index: 1;
 }
 
-.masonry .entry__thumb-link::after {
+.entry__thumb-link::after {
    content: "...";
    font-family: georgia, serif;
    font-size: 2.7rem;
@@ -1502,12 +1502,12 @@ input[type="submit"]
    transform: scale(0.5);
 }
 
-.masonry .entry__thumb:hover .entry__thumb-link::before {
+.entry__thumb:hover .entry__thumb-link::before {
    opacity: 1;
    visibility: visible;
 }
 
-.masonry .entry__thumb:hover .entry__thumb-link::after {
+.entry__thumb:hover .entry__thumb-link::after {
    opacity: 1;
    visibility: visible;
    -webkit-transform: scale(1);
@@ -1515,69 +1515,69 @@ input[type="submit"]
    transform: scale(1);
 }
 
-.masonry .entry__thumb:hover .entry__thumb-link img {
+.entry__thumb:hover .entry__thumb-link img {
    -webkit-transform: scale(1.05);
    -ms-transform: scale(1.05);
    transform: scale(1.05);
 }
 
-.masonry .entry__text {
+.entry__text {
    padding: 3rem 2.8rem 3.6rem;
    background-color: #FFFFFF;
 }
 
-.masonry .entry__title {
+.entry__title {
    font-size: 2.4rem;
    line-height: 1.375;
    margin-top: 0;
    margin-bottom: 2.1rem;
 }
 
-.masonry .entry__title a {
+.entry__title a {
    color: #000000;
    border-bottom: 1px solid transparent;
 }
 
-.masonry .entry__title a:hover, .masonry .entry__title a:focus {
+.entry__title a:hover, .entry__title a:focus {
    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
-.masonry .entry__date {
+.entry__date {
    font-family: "metropolis-medium", sans-serif;
    font-size: 1.4rem;
    line-height: 1.714;
    margin-bottom: .6rem;
 }
 
-.masonry .entry__date a {
+.entry__date a {
    color: #858585;
 }
 
-.masonry .entry__excerpt {
+.entry__excerpt {
    font-size: 1.5rem;
    line-height: 1.8;
 }
 
-.masonry .entry__meta {
+.entry__meta {
    font-family: "metropolis-semibold", sans-serif;
    font-size: 1.5rem;
    margin-bottom: 0;
   margin-top: 20px;
 }
 
-.masonry .entry__meta a {
+.entry__meta a {
    color: #0054a5;
 }
 
-.masonry .entry__meta a:hover, .masonry .entry__meta a:focus {
+.entry__meta a:hover, .entry__meta a:focus {
    color: #000000;
 }
 
-.masonry .entry__meta-links a::after {
+.entry__meta-links a::after {
    content: ", ";
 }
 
-.masonry .entry__meta-links a:last-child::after {
+.entry__meta-links a:last-child::after {
    display: none;
 }
 
@@ -3271,7 +3271,7 @@ html.no-csstransitions .featured {
    overflow: hidden;
 }
 
-.masonry {
+{
    margin-bottom: 3rem;
 }
 
@@ -3281,8 +3281,8 @@ html.no-csstransitions .featured {
    clear: both;
 }
 
-.masonry .grid-sizer, .masonry__brick {
-   width: 360px;
+.grid-sizer, .masonry__brick {
+   width: 320px;
 }
 
 .masonry__brick {
@@ -3306,7 +3306,7 @@ html.no-csstransitions .featured {
       width: 1020px;
    }
 
-   .masonry .grid-sizer, .masonry .masonry__brick {
+   .grid-sizer, .masonry__brick {
       width: 340px;
    }
 
@@ -3317,7 +3317,7 @@ html.no-csstransitions .featured {
       width: 740px;
    }
 
-   .masonry .grid-sizer, .masonry .masonry__brick {
+   .grid-sizer, .masonry__brick {
       width: 370px;
    }
 
@@ -3329,7 +3329,7 @@ html.no-csstransitions .featured {
       width: 90%;
    }
 
-   .masonry .grid-sizer, .masonry .masonry__brick {
+   .grid-sizer, .masonry__brick {
       width: 50%;
       padding: 0 15px;
    }
@@ -3341,7 +3341,7 @@ html.no-csstransitions .featured {
       max-width: 400px;
    }
 
-   .masonry .grid-sizer, .masonry .masonry__brick {
+   .grid-sizer, .masonry__brick {
       width: 100%;
       clear: both;
    }
@@ -3353,14 +3353,14 @@ html.no-csstransitions .featured {
       width: auto;
    }
 
-   .masonry .grid-sizer, .masonry .masonry__brick {
+   .grid-sizer, .masonry__brick {
       padding: 0 10px;
    }
 
 }
 
 @media only screen and (max-width:400px) {
-   .masonry .masonry__brick {
+   .masonry__brick {
       width: 100% !important;
       float: none !important;
       clear: both !important;
